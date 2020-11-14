@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" style="font-size: 2rem;" (click)="goBack()"></ion-icon>
+    </ion-buttons>
+    <ion-title>Temperatura</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="isLoading" style="text-align: center; margin-top: 50%;">
+    <ion-spinner style="width: 80px; height: 80px;"></ion-spinner>
+    <p>Carregando</p>
+  </div>
+
+  <div *ngIf="!isLoading">
+
+    <ion-card>
+      <ion-card-content style="text-align: center; font-size: 5rem;">
+        {{dweet._with[0].content.temperatura}}​​​​ ºC
+      </ion-card-content>
+    </ion-card>
+
+    <div style="text-align: center;">
+      <p>
+        <ion-icon name="calendar" color="primary"></ion-icon>
+        {{dweet._with[0].date}}​​​​
+      </p>
+      <p>
+        <ion-icon name="time" color="secondary"></ion-icon>
+        {{dweet._with[0].time}}​​​​
+      </p>
+    </div>
+
+    <chart [options]="options" style="display: block;" type="chart"></chart>
+  </div>
+
+</ion-content>
