@@ -21,6 +21,26 @@ export class AppComponent implements OnInit {
       title: 'Temperatura',
       url: '/temperature',
       icon: 'thermometer'
+    },
+    {
+      title: 'Luminosidade',
+      url: '/luminosidade',
+      icon: 'sunny'
+    },
+    {
+      title: 'Umidade',
+      url: '/umidade',
+      icon: 'water'
+    },
+    {
+      title: 'Buzzer',
+      url: '/buzzer',
+      icon: 'musical-note'
+    },
+    {
+      title: 'Led',
+      url: '/led',
+      icon: 'color-fill'
     }
   ];
 

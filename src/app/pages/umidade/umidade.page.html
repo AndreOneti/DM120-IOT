@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-icon name="arrow-back" style="font-size: 2rem;" (click)="goBack()"></ion-icon>
     </ion-buttons>
-    <ion-title>Temperatura</ion-title>
+    <ion-title>umidade</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,14 +18,14 @@
 
     <ion-card>
       <ion-card-content style="text-align: center; font-size: 5rem;">
-        {{dweet._with[0].content.temperatura}}​​​​ ºC
+        {{dweet._with[0].content.umidade}}​​​​ %
       </ion-card-content>
     </ion-card>
 
     <div style="text-align: center;">
       <p>
-        <ion-icon name="thermometer" color="secondary"></ion-icon> Min: {{dweet._with[0].content.temperaturaMin}} ºC &nbsp;
-        <ion-icon name="thermometer" color="secondary"></ion-icon> Max: {{dweet._with[0].content.temperaturaMax}} ºC
+        <ion-icon name="water" color="secondary"></ion-icon> Min: {{dweet._with[0].content.umidadeMin}}% &nbsp;
+        <ion-icon name="water" color="secondary"></ion-icon> Max: {{dweet._with[0].content.umidadeMax}}%
       </p>
       <p>
         <ion-icon name="calendar" color="primary"></ion-icon>

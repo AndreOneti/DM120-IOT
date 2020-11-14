@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import Dweet from 'src/models/Dweet';
 
 @Component({
-  selector: 'app-temperature',
-  templateUrl: './temperature.page.html',
-  styleUrls: ['./temperature.page.scss'],
+  selector: 'app-umidade',
+  templateUrl: './umidade.page.html',
+  styleUrls: ['./umidade.page.scss'],
 })
-export class TemperaturePage implements OnInit, OnDestroy {
+export class UmidadePage implements OnInit, OnDestroy {
 
   private isLoading: boolean = true;
   private dataPlotMax: Array<any>;
@@ -63,9 +63,9 @@ export class TemperaturePage implements OnInit, OnDestroy {
   private loadDataForPlot(dweet: Dweet) {
     for (let _with of dweet.with) {
       let epoch = new Date(_with.created).getTime();
-      this.dataPlot.push([epoch, _with.content.$temperatura]);
-      this.dataPlotMax.push([epoch, _with.content.$temperaturaMax]);
-      this.dataPlotMin.push([epoch, _with.content.$temperaturaMin]);
+      this.dataPlot.push([epoch, _with.content.$umidade]);
+      this.dataPlotMax.push([epoch, _with.content.$umidadeMax]);
+      this.dataPlotMin.push([epoch, _with.content.$umidadeMin]);
     }
   }
 
@@ -77,7 +77,7 @@ export class TemperaturePage implements OnInit, OnDestroy {
       yAxis: {
         labels: {
           formatter: function () {
-            return this.value + "ºC";
+            return this.value + "%";
           }
         },
       },

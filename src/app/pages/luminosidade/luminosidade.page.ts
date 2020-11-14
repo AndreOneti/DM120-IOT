@@ -1,14 +1,14 @@
 import { DweetService } from 'src/app/services/dweet.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Dweet from 'src/models/Dweet';
 
 @Component({
-  selector: 'app-temperature',
-  templateUrl: './temperature.page.html',
-  styleUrls: ['./temperature.page.scss'],
+  selector: 'app-luminosidade',
+  templateUrl: './luminosidade.page.html',
+  styleUrls: ['./luminosidade.page.scss'],
 })
-export class TemperaturePage implements OnInit, OnDestroy {
+export class LuminosidadePage implements OnInit {
 
   private isLoading: boolean = true;
   private dataPlotMax: Array<any>;
@@ -63,9 +63,9 @@ export class TemperaturePage implements OnInit, OnDestroy {
   private loadDataForPlot(dweet: Dweet) {
     for (let _with of dweet.with) {
       let epoch = new Date(_with.created).getTime();
-      this.dataPlot.push([epoch, _with.content.$temperatura]);
-      this.dataPlotMax.push([epoch, _with.content.$temperaturaMax]);
-      this.dataPlotMin.push([epoch, _with.content.$temperaturaMin]);
+      this.dataPlot.push([epoch, _with.content.$luminosidade]);
+      this.dataPlotMax.push([epoch, _with.content.$luminosidadeMax]);
+      this.dataPlotMin.push([epoch, _with.content.$luminosidadeMin]);
     }
   }
 
@@ -77,21 +77,21 @@ export class TemperaturePage implements OnInit, OnDestroy {
       yAxis: {
         labels: {
           formatter: function () {
-            return this.value + "ºC";
+            return this.value + "Lux";
           }
         },
       },
-      title: { text: 'Temperatura ' },
+      title: { text: 'Luminosidade ' },
       series: [{
-        name: 'temperatura',
+        name: 'Luminosidade',
         data: this.dataPlot.reverse(),
         pointInterval: 60 * 60
       }, {
-        name: 'temperatura',
+        name: 'Luminosidade Max',
         data: this.dataPlotMax.reverse(),
         pointInterval: 60 * 60
       }, {
-        name: 'temperatura',
+        name: 'Luminosidade Min',
         data: this.dataPlotMin.reverse(),
         pointInterval: 60 * 60
       }]
