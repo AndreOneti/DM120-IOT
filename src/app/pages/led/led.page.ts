@@ -52,8 +52,17 @@ export class LedPage implements OnInit {
   }
 
   getColor(): string {
-    if(this.dweet.with[0].content.$color === "Vermelha") return "color: red;";
-    if(this.dweet.with[0].content.$color === "Verde") return "color: green;";
-    if(this.dweet.with[0].content.$color === "Azul") return "color: blue;";
+    if (
+      this.dweet.with[0].content.$color === "Vermelha"
+      || this.dweet.with[0].content.$color === "red"
+    ) return "color: red;";
+    if (
+      this.dweet.with[0].content.$color === "Verde"
+      || this.dweet.with[0].content.$color === "green"
+    ) return "color: green;";
+    if (
+      this.dweet.with[0].content.$color === "Azul"
+      || this.dweet.with[0].content.$color === "blue"
+    ) return "color: blue;";
   }
 }
